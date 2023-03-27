@@ -1,0 +1,15 @@
+div p{
+    color: yellow;
+}
+div>p{
+    color:crimson;
+}
+div+p   {
+    color: green;
+}
+div~div{
+    color:coral;
+}
+[class^="box"]{
+    border: 2px solid red;
+}
