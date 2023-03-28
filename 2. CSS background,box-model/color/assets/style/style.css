@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+body{
+    height: 300vh;
+    font-size: 40px;
+}
+/* color name */
+p:first-child{
+    color:mediumvioletred;
+}
+/* rgb - red green blue */
+p:nth-child(2){
+    color: rgb(5, 5, 248);
+}
+/* rgba */
+p:nth-child(3){
+    background-color: rgba(256,256,0,0);
+    color: rgba(256, 0, 0, 0.5);
+}
+/* hex code */
+p:nth-child(4){
+    color: #0b7064a6;
+}
+/* hsl */
+p:nth-child(5){
+    color: hsl(147, 100%, 50%);
+}
+/* hsla */
+p:nth-child(6){
+    color: hsla(147, 100%, 50%,0.2);
+}
+
+/* BACKGROUNDS */
+hr{
+    margin: 50px 0px;
+}
+.box{
+    width: 90%;
+    height: 600px;
+    margin: 0 auto;
+    border: 3px solid red;
+    background-image: url("../media/rick_and_morty_s4_image.0.jpg");
+    background-repeat:no-repeat;
+    background-size:cover;
+    overflow: hidden;
+    /* background-position: top right; */
+}
+.box::after{
+    content: '';
+    width: 0%;
+    height: 0%;
+    background-color: rgba(0, 0, 0, 0.702);
+    display: block;
+    transition: .8s ease-in-out;
+}
+.box:hover::after{
+    width: 100%;
+    height: 100%;
+}
+.inner-box{
+    background-color: red;
+    background-size: cover;
+    margin: 0 auto;
+    background-position: center bottom;
+}
+.wrapper{
+    border: 1px solid blue;
+    margin: 0 auto;
+    width: 40%;
+    height: 400px;
+}
+.wrapper img{
+    width: 100%;
+    height: 100%;
+}
+
+/* Card */
+.card{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 30%;
+    margin: 0 auto;
+    border-radius: 10px;
+    text-align: center;
+    padding: 30px 15px;
+}
+.card-img{
+    width: 40%;
+    height: 170px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.card-img img::after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+.card-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* px, rem, em, %, vh, vw */
+article{
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+    border: 2px solid seagreen;
+}
+/* article h1{
+    font-size: 30px;
+}
+article p{
+    font-size: 2rem;
+} */
+
+
