@@ -1,0 +1,103 @@
+/* @import url('https://fonts.googleapis.com/css2?family=K2D:wght@100;300;400;500;600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap'); */
+
+
+p:first-child{
+    color: red;
+    text-align: center;
+}
+p:nth-child(2){
+    color: green;
+    background-color: greenyellow;
+    text-align: end;
+}
+p:last-child{
+    color: blue;
+    background-color: pink;
+    text-align: start;
+}
+#justify{
+    width: 60%;
+    height: 100px;
+    border: 1px solid red;
+    padding: 0px 10px;
+    overflow-y: scroll;
+    margin: 0 auto;
+    /* spread */
+    box-shadow: 10px 10px 20px red;
+}
+:root{
+    font-size: 20px;
+}
+#justify p{
+   /* text-align-last: center; */
+   /* right to left */
+   /* direction: rtl; 
+   unicode-bidi: bidi-override; */
+   text-transform: lowercase;
+   text-align: left;
+   text-indent:20px;
+   /* letter-spacing:2px; */
+   /* word-spacing:10px; */
+   /* line-height:2em; */
+   /* white-space: pre-wrap; */
+   /* x y blur color*/
+   text-shadow: 1px 1px 5px green;
+   /* font-style: oblique; */
+   /* font-weight:bolder;
+   font-variant:small-caps; */
+   font-size: 0.7em;
+   font-family: roboto medium;
+}
+/* @font-face {
+    font-family: roboto medium;
+    src: url("../../assets/fonts/Roboto-Medium.ttf");
+} */
+hr{
+    margin: 50px 0px;
+}
+#justify p::first-letter{
+    text-transform: uppercase;
+}
+#justify a{
+    text-decoration-line:line-through;
+    text-decoration-color:blueviolet;
+    text-decoration-style:solid;
+    text-decoration-thickness:10px;
+}
+.fonts{
+    border: 1px solid green;
+    padding: 30px;
+    width: 90%;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.fonts div{
+    border: 1px solid black;
+    width: 33%;
+    height: 200px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.fonts div .fa-brands{
+    font-size: 50px;
+    margin: 0 auto;
+}
+.fa-windows{
+    color: blue;
+}
+.fa-spotify{
+    color: green;
+    transition: .5s;
+}
+.fa-instagram{
+    color: red;
+}
+.fa-spotify:hover{
+    color: rgb(0, 241, 0);
+    transform: scale(0.9);
+}

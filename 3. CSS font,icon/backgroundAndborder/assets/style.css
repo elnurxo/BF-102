@@ -1,0 +1,42 @@
+body{
+    height: 200vh;
+}
+#img{
+    margin-top: 400px;
+    padding: 30px 0px;
+    border: 1px solid red;
+    height: 500px;
+    background-image: linear-gradient(to right,rgba(199, 1, 1, 0.505),rgba(0,0,0,0.5)),url('./theme.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+hr{
+    margin: 50px 0;
+}
+.box{
+    width: 200px;
+    height: 200px;
+    border: 2px solid hotpink;
+    margin: 0 auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background: pink;
+    padding: 5px 15px;
+    overflow-y: scroll;
+    transition: .6s;
+}
+.box:hover{
+    background: hotpink;
+}
+.gradient{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    /* background-color: indianred; */
+    /* background-image: linear-gradient(to right, rgba(256,0,0,-0.6),rgb(256,0,0)); */
+    /* background-image: repeating-linear-gradient(red, yellow 10%, green 20%); */
+    /* background-image: radial-gradient(circle,red,orange,yellow,black); */
+    background-image: conic-gradient(from 180deg,red,orange,yellow,orange,red);
+    margin: 0 auto;
+}
