@@ -1,0 +1,35 @@
+/* universal selector */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.box{
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+    border: 10px solid black;
+    background-color: seagreen;
+}
+.box:hover+span{
+    opacity: 1;
+    visibility: visible;
+}
+span{
+    opacity: 0;
+    visibility: hidden;
+    border: 1px solid red;
+    margin-bottom: 20px;
+    height: 30px;
+    transition: .5s;
+}
+body>span:first-of-type{
+    margin-right: 20px;
+    margin-bottom: 40px;
+}
+div:first-child{
+    margin-bottom: 40px;
+}
+span b{
+    margin-right: 20px;
+}
