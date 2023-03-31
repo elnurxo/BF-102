@@ -1,0 +1,57 @@
+.wrapper{
+    border: 2px solid black;
+    height: 500px;
+    display: flex;
+    /* x */
+    /* justify-content:center; */
+    /* y */
+    /* align-items: center; */
+    /* wrap */
+    /* flex-wrap: wrap;
+    flex-direction:column; */
+    /* flex-flow: column wrap; */
+    /* align-content: center; */
+    /* gap: 10px 30px; */
+    /* column-gap: 30px; */
+    /* direction */
+    /* justify-content: center;
+    align-items: center; */
+    /* flex-wrap: wrap; */
+}
+.box{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: white;
+   font-size: 30px;
+   width: 200px;
+   height: 100px;
+   background-color: red;
+   border: 1px solid black;
+}
+/* .box:nth-child(1){
+    order: 5;
+    flex: 0 5 10%;
+}
+.box:nth-child(2){
+    order: 4;
+}
+.box:nth-child(3){
+    order: 3;
+}
+.box:nth-child(4){
+    order: 2;
+}
+.box:nth-child(5){
+    order: 1;
+} */
+.box:nth-child(even){
+    align-self:flex-start;
+}
+.box:nth-child(odd){
+    align-self:center;
+}
+.box:nth-child(2){
+    align-self: flex-end;
+}
+
