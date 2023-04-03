@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    position: fixed;
+    height: 70px;
+    width: 100%;
+    background-color: #fff;
+    z-index: 999;
+}
+nav{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav .logo h4{
+    font-family: Poppins;
+    color: #5fcf80;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 30px;
+}
+nav .links{
+    display: flex;
+}
+nav .links>ul{
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+nav .links ul li a{
+    text-decoration: none;
+    color: black;
+    padding: 10px 0 10px 30px;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    transition: .5s;
+}
+nav .links ul li a:hover{
+    color: #5fcf80;
+}
+nav .links .get-started{
+    background-color: #5fcf80;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    padding: 8px 25px;
+    margin-left: 22px;
+}
+/* drop down */
+.drop-down{
+    position: relative;
+}
+.drop-down>ul{
+    position: absolute;
+    background-color: #fff;
+    width: 200px;
+    top: 55px;
+    padding: 10px 20px;
+    list-style: none;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: .4s;
+    visibility: hidden;
+    opacity: 0;
+}
+.drop-down:hover>ul{
+    top: 30px;
+    visibility: visible;
+    opacity: 1;
+}
+.drop-down>ul li{
+    padding: 10px 0px;
+}
+.drop-down>ul li a{
+    padding: 0 !important;
+}
+.deep-drop-down{
+    position: relative;
+}
+.deep-drop-down>ul{
+    position: absolute;
+    background-color: #fff;
+    width: 200px;
+    left: 90%;
+    top: 0%;
+    padding: 10px 20px;
+    list-style: none;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: .4s;
+    visibility: hidden;
+    opacity: 0;
+}
+.deep-drop-down:hover>ul{
+    left: 111% !important;
+    top: 0%;
+    visibility: visible;
+    opacity: 1;
+}
+.bars{
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-size: 22px;
+    margin-left: 15px;
+    display: none;
+}
+
+@media only screen and (max-width:992px){
+    .bars{
+        display: flex;
+    }
+    .links>ul{
+        display: none !important;
+    }
+}

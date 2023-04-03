@@ -1,0 +1,201 @@
+#hero{
+    background-image: url("../images/hero-bg.jpg");
+    background-attachment: fixed;
+    height: 80vh;
+    background-size: cover;
+    background-position: top center;
+    position: relative;
+    padding-top: 70px;
+}
+#hero::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+#hero>div{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#hero article{
+    color: white;
+    z-index: 10;
+}
+#hero article h2{
+    margin: 0;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    font-family: "Poppins", sans-serif;
+}
+#hero article p{
+    color: #eee;
+    margin: 10px 0 0 0;
+    font-size: 24px;
+    font-family: "Raleway", sans-serif;
+}
+#hero article button{
+    padding: 10px 35px;
+    border-radius: 50px;
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 35px;
+    font-size: 15px;
+    margin-top: 30px;
+    transition: .4s;
+}
+#hero article button:hover{
+    background-color: #5fcf80;
+    border-color: #5fcf80;
+}
+
+/* about section */
+#about{
+    padding: 60px 0px;
+}
+#about article h2{
+    font-family: Raleway;
+    font-weight: 600;
+    font-size: 26px;
+    margin-bottom: 1em;
+}
+#about article p{
+    font-family: 'Open Sans';
+    font-style: italic;
+    margin-bottom: 1em;
+}
+#about article ul{
+    list-style: none;
+    padding-bottom: 15px;
+}
+#about article ul li{
+    line-height: 2rem;
+    font-family: 'Open Sans';
+}
+#about article ul li i{
+    color: #5fcf80;
+    border: 2px solid #5fcf80;
+    border-radius: 50%;
+    font-size: 10px;
+    padding: 4px;
+    margin-right: 10px;
+}
+#about .about-img img{
+    width: 100%;
+}
+
+/* count section */
+#count{
+    background-color: rgb(246,247,246);
+    padding: 30px 0px;
+}
+#count .count{
+    text-align: center;
+    font-family: 'Open Sans';
+}
+#count [class|="col"]{
+    display: flex;
+    justify-content: center;
+}
+#count .count h2{
+    color: #5fcf80;
+    font-size: 48px;
+    font-weight: 700;
+}
+#count .count span{
+    font-weight: 500;
+}
+
+/* why us section */
+#why-us{
+   padding: 60px 0px; 
+}
+#why-us .why-us{
+    background-color: #5fcf80;
+    padding: 30px;
+    color: white;
+    font-family: Raleway, sans-serif;
+    border-radius: 7px;
+}
+#why-us .why-us h1{
+    font-weight: 700;
+    font-size: 34px;
+    margin-bottom: 30px;
+}
+#why-us .why-us p{
+    margin-bottom: 30px;
+}
+#why-us .why-us button{
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    padding: 6px 30px 8px;
+    border-color: transparent;
+    color: white;
+    transition: .4s;
+}
+#why-us .why-us button i{
+    font-size: 9px;
+}
+#why-us .why-us button:hover{
+    background-color: #fff;
+    color: #5fcf80;
+}
+#why-us .get-started{
+    text-align: center;
+}
+#why-us [class|="col"]{
+    padding: 0px 16px;
+}
+.card-inner{
+    border: 1px solid rgb(238, 240, 239);
+    padding: 40px 30px !important;
+
+}
+#why-us .card{
+    background-color: #fff;
+    text-align: center;
+}
+#why-us .card .icon i{
+    color: #5fcf80;
+    background: rgb(236, 249, 240);
+    border-radius: 50px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+#why-us .card h2{
+    margin-bottom: 30px;
+    font-family: Raleway;
+    font-size: 20px;
+    font-weight: 700;
+}
+#why-us .card p{
+    font-family: Raleway;
+    font-size: 15px;
+    color: rgb(132, 132, 132);
+    margin-bottom: 1rem;
+}
+
+
+
+@media only screen and (max-width:992px){
+    #hero{
+        height: 100vh;
+    }
+    #hero article h2{
+        font-size: 28px;
+        line-height: 36px;
+    }
+    #hero article p{
+        font-size: 18px;
+        line-height: 24px;
+    }
+    #about .row{
+        flex-direction: column-reverse;
+    }
+}
