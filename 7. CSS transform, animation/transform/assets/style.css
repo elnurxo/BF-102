@@ -1,0 +1,204 @@
+.wrapper {
+  width: 700px;
+  margin: 0px auto;
+  height: 500px;
+  border: 2px solid black;
+  position: relative;
+}
+body {
+  height: 200vh;
+}
+.wrapper [class|="box"] {
+  width: 100px;
+  height: 100px;
+}
+.wrapper .heart {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 70px;
+  animation-name: heartbeat;
+  animation-duration: 500ms;
+  animation-iteration-count: infinite;
+}
+.another-box {
+  background-color: purple;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: calc(100% - 50px);
+  left: 50%;
+  animation-name: rotate;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-50%) rotate(90deg);
+  }
+  50% {
+    transform: translateX(-50%) rotate(180deg);
+  }
+  75% {
+    transform: translateX(-50%) rotate(270deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
+@keyframes heartbeat {
+  from {
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+}
+.box-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  /* left: 0;
+    top: 0; */
+  background-color: hotpink;
+  /* transition: 1s; */
+  /* transform: scale(2); */
+  animation-name: movement;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  /* animation-iteration-count: infinite; */
+  /* animation: movement 3s linear 500ms 1; */
+}
+.box-1:hover {
+  animation-play-state: paused;
+}
+@keyframes movement {
+  0% {
+    left: 0%;
+    top: 0%;
+  }
+  25% {
+    left: calc(100% - 100px);
+    top: 0%;
+  }
+  50% {
+    top: calc(100% - 100px);
+    left: calc(100% - 100px);
+  }
+  75% {
+    left: 0%;
+    top: calc(100% - 100px);
+  }
+  100% {
+    left: 0%;
+    top: 0%;
+  }
+}
+/* .wrapper:hover>.box-1{
+    left: 50%;
+    top: 50%;
+    transform: scale(2) translate(-25%,-25%) rotate(2turn);
+} */
+hr {
+  margin: 150px 0px;
+}
+/* .box-2{
+    background-color: orange;
+    transform: translate(calc(700px - 100px),-100px);
+}
+.box-3{
+    background-color: orangered;
+    transform: translate(0px,200px);
+}
+.box-4{
+    background-color: seagreen;
+    transform: translate(calc(700px - 100px),100px);
+
+} */
+
+.notification {
+  width: 4%;
+  margin: 50px auto;
+  border: 1px solid black;
+}
+.notification span {
+  font-size: 40px;
+}
+.notification span .count {
+  transform: translate(55px, -65px);
+  font-size: 12px;
+  color: red;
+  font-weight: bolder;
+}
+.road {
+  border-bottom: 5px solid green;
+  position: relative;
+}
+.road .box {
+  position: absolute;
+  bottom: 0;
+  animation-name: drive;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  /* animation-timing-function:cubic-bezier(.3,1.46,.44,-0.33); */
+  /* animation-delay: 1s; */
+  /* animation-direction:alternate-reverse; */
+}
+.road .box i {
+  font-size: 50px;
+  transform: rotate(-45deg);
+  color: red;
+}
+.road .box:hover {
+  animation-play-state: paused;
+}
+.flip-card img{
+    object-fit: cover;
+}
+@keyframes drive {
+  from {
+    left: 0%;
+  }
+  to {
+    left: calc(100% - 50px);
+    transform: rotateY(-180deg);
+  }
+}
+
+.transition{
+    width: 70%;
+    height: 600px;
+    border: 1px solid red;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.transition .box{
+    height: 80px;
+    width: 100px;
+    background-color: green;
+}
+.box-a{
+   transition-duration: 2s;
+   /* transition-delay: 1s; */
+   transition-timing-function: linear;
+}
+.box-b{
+    transition-duration: 2s;
+    /* transition-delay: 1s; */
+    transition-timing-function: cubic-bezier(.2,1.04,.82,-0.32);
+    transition: width 4s linear, background-color 1s linear;
+ }
+.box-a:hover{
+    width: 100%;
+    background-color: red;
+}
+.box-b:hover{
+    background-color: blue;
+    width: 100%;
+}
