@@ -1,0 +1,40 @@
+header{
+    height: 70px;
+    background-color: $header-bgc;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    .nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        &__logo{
+            color: $primary-green;
+            font-size: 32px;
+            font-family: $main-font;
+        }
+
+       &-right{
+        display: flex;
+        &__link {
+            display: flex;
+            align-items: center;
+            &-item {
+                padding-right: 15px;
+                a {
+                    color: black;
+                    font-family: $main-font;
+                    transition: .4s linear;
+                    &:hover{
+                        color: $primary-green;
+                    }
+                }
+            }
+        }
+        &__btn{
+            @include button($primary-green);
+        }
+       }
+    }
+}

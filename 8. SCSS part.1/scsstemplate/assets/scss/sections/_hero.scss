@@ -1,0 +1,39 @@
+main{
+    #hero{
+        height: 70vh;
+        width: 100%;
+        background-image: url("https://bootstrapmade.com/demo/templates/Mentor/assets/img/hero-bg.jpg");
+        background-position:  top center;
+        background-attachment: fixed;
+        padding-top: 70px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        &::before{
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            content:'';
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        article{
+            z-index: 10;
+            position: relative;
+            h1{
+                font-size: 40px;
+                @extend %font-config;
+            }
+            p{
+               @extend %font-config;
+            }
+            button{
+                @include secondary-btn(2px, transparent);
+            }
+        }
+    }
+}

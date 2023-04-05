@@ -1,0 +1,7 @@
+@mixin buttonmix($bgc,$brcolor,$brsize){
+    border: $brsize solid $brcolor;
+    padding: 10px 20px;
+    border-radius: 7px;
+    color: white;
+    background-color: $bgc;
+}
