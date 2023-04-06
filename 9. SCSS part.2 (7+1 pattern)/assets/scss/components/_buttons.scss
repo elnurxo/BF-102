@@ -1,0 +1,6 @@
+.main-btn{
+    @include main-btn(red);
+}
+.secondary-btn{
+    @include main-btn(green);
+}

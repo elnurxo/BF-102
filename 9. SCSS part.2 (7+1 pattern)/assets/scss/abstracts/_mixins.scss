@@ -1,0 +1,7 @@
+@mixin main-btn($bcg){
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 2px solid black;
+    color: white;
+    background-color: $bcg;
+}
