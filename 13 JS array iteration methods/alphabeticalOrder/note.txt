@@ -1,0 +1,4 @@
+girishde bir string verilir: "bdaczfure";
+bu string-i elifba sirasi ile duzulmush shekilde qaytaran bir function yazin;
+function bir string ve displayResult function-i qebul edir ve elifba 
+sirasi ile duzulmush shekilde hemin string-i qaytarir.
