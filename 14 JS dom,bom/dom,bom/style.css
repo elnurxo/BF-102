@@ -1,0 +1,10 @@
+.active{
+    background-color: skyblue;
+    border: 1px solid black;
+    color: white;
+}
+.danger{
+    background-color: red;
+    border: 1px solid black;
+    color: white;
+}
