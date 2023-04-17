@@ -1,0 +1,22 @@
+.wrapper{
+    width: 50%;
+    margin: 0 auto;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    height: 500px;
+    border-radius: 10px;
+    display: inline-block;
+    overflow: hidden;
+}
+.slide{
+    display: none;
+}
+.active{
+    display: block;
+}
+
+.wrapper .slide img{
+    object-fit: cover;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}

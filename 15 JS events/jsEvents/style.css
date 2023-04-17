@@ -1,0 +1,23 @@
+.box{
+    width: 30%;
+    margin: 0 auto;
+    border: 2px solid black;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button{
+    padding: 10px 20px;
+    border-radius: 7px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    background-color: green;
+    cursor: pointer;
+}
+#count{
+    margin: 0px 15px;
+    font-weight: bold;
+    font-size: 20px;
+}
