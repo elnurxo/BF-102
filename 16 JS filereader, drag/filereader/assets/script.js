@@ -2,44 +2,80 @@ let wrapper = document.querySelector(".images-wrapper");
 let fileInput = document.querySelector("#upload");
 let undo = document.querySelector(".undo");
 let dropZone = document.querySelector(".drop-zone");
+let addBtn = document.querySelector(".add")
 let lastDeleted = undefined;
 
 fileInput.addEventListener("change", (e) => {
   let files = Array.from(e.target.files);
-  files.forEach((file) => {
-    ShowImage(file);
-  });
+  if (e.target.value!="") {
+    files.forEach((file) => {
+      ShowImage(file,false);
+    });
+  }
 });
 
-function ShowImage(file) {
+function ShowImage(file,isFromDrop) {
   const fileReader = new FileReader();
   fileReader.readAsDataURL(file);
-  fileReader.addEventListener("loadend", () => {
-    let src = fileReader.result;
-    let size = Math.floor(file.size / 1024);
-
-    wrapper.innerHTML += `<div class="col-3">
-    <div class="card">
-        <button class="remove btn btn-danger">X</button>
-        <p class="size">${size}KB</p>
-        <img src="${src}" alt="${file.name}">
-    </div>
-    </div>`;
-    fileInput.value = "";
-    //remove button click
-    let removeButtons = [];
-    for (let i = 0; i < wrapper.children.length; i++) {
-      removeButtons.push(wrapper.children[i].children[0].children[0]);
-    }
-    removeButtons.forEach((removeButton) => {
-      removeButton.addEventListener("click", (e) => {
-        if (window.confirm("Are you sure to delete?")) {
-          lastDeleted = e.target.parentElement.parentElement;
-          e.target.parentElement.parentElement.remove();
-        }
+  console.log("call the func",file);
+  if (!isFromDrop) {
+    addBtn.addEventListener("click", () => {
+      fileInput.value = "";
+      console.log(file);
+      let src = fileReader.result;
+      let size = Math.floor(file.size / 1024);
+  
+      wrapper.innerHTML += `<div class="col-3">
+      <div class="card">
+          <button class="remove btn btn-danger">X</button>
+          <p class="size">${size}KB</p>
+          <img src="${src}" alt="${file.name}">
+      </div>
+      </div>`;
+      //remove button click
+      let removeButtons = [];
+      for (let i = 0; i < wrapper.children.length; i++) {
+        removeButtons.push(wrapper.children[i].children[0].children[0]);
+      }
+      removeButtons.forEach((removeButton) => {
+        removeButton.addEventListener("click", (e) => {
+          if (window.confirm("Are you sure to delete?")) {
+            lastDeleted = e.target.parentElement.parentElement;
+            e.target.parentElement.parentElement.remove();
+          }
+        });
+      });
+    },{once:true});
+  }
+  else{
+    fileReader.addEventListener("loadend", () => {
+      fileInput.value = "";
+      console.log(file);
+      let src = fileReader.result;
+      let size = Math.floor(file.size / 1024);
+  
+      wrapper.innerHTML += `<div class="col-3">
+      <div class="card">
+          <button class="remove btn btn-danger">X</button>
+          <p class="size">${size}KB</p>
+          <img src="${src}" alt="${file.name}">
+      </div>
+      </div>`;
+      //remove button click
+      let removeButtons = [];
+      for (let i = 0; i < wrapper.children.length; i++) {
+        removeButtons.push(wrapper.children[i].children[0].children[0]);
+      }
+      removeButtons.forEach((removeButton) => {
+        removeButton.addEventListener("click", (e) => {
+          if (window.confirm("Are you sure to delete?")) {
+            lastDeleted = e.target.parentElement.parentElement;
+            e.target.parentElement.parentElement.remove();
+          }
+        });
       });
     });
-  });
+  }
 }
 
 undo.addEventListener("click", () => {
@@ -57,9 +93,9 @@ dropZone.addEventListener("dragover", (e) => {
 
 dropZone.addEventListener("drop", (e) => {
   e.preventDefault();
-  console.log(e);
   let files = Array.from(e.dataTransfer.files);
+  console.log(files);
   files.forEach((file) => {
-    ShowImage(file);
+    ShowImage(file,true);
   });
 });
