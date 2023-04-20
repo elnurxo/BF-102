@@ -1,0 +1,34 @@
+*{
+    color: white;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.grand-box{
+    width: 600px;
+    height: 600px;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box{
+    width: 400px;
+    height: 400px;
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.child-box{
+    width: 200px;
+    height: 200px;
+    background-color: red;
+}
