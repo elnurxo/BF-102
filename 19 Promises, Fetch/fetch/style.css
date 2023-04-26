@@ -1,0 +1,13 @@
+.box{
+    width: 400px;
+    margin: 40px auto;
+}
+.box h1{
+    text-align: center;
+}
+#data-list{
+    border: 1px solid red;
+}
+.loader{
+    display: none;
+}
