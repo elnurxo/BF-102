@@ -32,13 +32,19 @@ export const deleteCategoryByID = async(id)=>{
 
 //post Category
 export const postCategory = async(category)=>{
-    fetch(`${baseURL}/categories`,{
+    let globalData;
+    await fetch(`${baseURL}/categories`,{
         method: 'POST',
         headers: {
             'Content-Type':'application/json'
         },
         body: JSON.stringify(category)
+    }).then(res=>res.json())
+    .then(data =>{
+        globalData = data;
     })
+
+    return globalData;
 }
 
 //put Category by ID

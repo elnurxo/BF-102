@@ -3,6 +3,7 @@ import {
   deleteCategoryByID,
   postCategory,
   editCategoryByID,
+  getCategoryByID,
 } from "./httprequests.js";
 let list = document.querySelector(".categories");
 let editModal = document.querySelector("#edit-category-modal");
@@ -84,24 +85,34 @@ getAllCategories().then((data) => {
       editModal.style.visibility = "visible";
       editModal.style.transform = "translate(-50%,-50%) scale(1)";
 
-     
       editNameInput.value = editingObj.name;
       editDescInput.value = editingObj.description;
-    });
-    //edit button request
-    editBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      let newName = editNameInput.value;
-      let newDesc = editDescInput.value;
-      let updatedCategory = {
-        name: newName,
-        description: newDesc,
-      };
-      console.log(updatedCategory);
-      editCategoryByID(editingObj.id,updatedCategory);
-      EditModalClose();
+      editBtn.setAttribute("data-id",editingObj.id);
+
+      //getting currently editin list item
+      item.setAttribute("is-editing",true);
     });
   });
+      //edit button request
+      editBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        let newName = editNameInput.value;
+        let newDesc = editDescInput.value;
+        let id = e.target.getAttribute("data-id");
+        let updatedCategory = {
+          name: newName,
+          description: newDesc,
+        };
+        editCategoryByID(id,updatedCategory);
+        EditModalClose();
+
+        //update in UI
+        Array.from(list.children).filter((item)=>{
+          if (item.getAttribute("is-editing")) {
+            item.children[0].textContent = newName;
+          }
+        })
+      });
 });
 
 //open modal
@@ -121,6 +132,10 @@ closeModal.onclick = function () {
 };
 EditCloseModal.onclick = function () {
   EditModalClose();
+  Array.from(list.children).forEach((item)=>{
+    console.log(item);
+    item.removeAttribute("is-editing");
+  })
 };
 
 function ModalClose() {
@@ -141,7 +156,7 @@ let nameInput = document.querySelector("#name");
 let descInput = document.querySelector("#desc");
 let form = document.querySelector("form");
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit",async(e) => {
   e.preventDefault();
   const category = {
     name: nameInput.value,
@@ -150,14 +165,17 @@ form.addEventListener("submit", (e) => {
   //reset inputs
   nameInput.value = "";
   descInput.value = "";
-  postCategory(category);
+  let id;
+  await postCategory(category).then((data)=>{
+     id = data.id;
+  })
 
   // add product to UI
-  list.innerHTML += `<li data-desc="${category.description} class="list-group-item d-flex  justify-content-between">
+  list.innerHTML += `<li data-desc="${category.description}" class="list-group-item d-flex  justify-content-between">
   <span>${category.name}</span>
   <div>
-  <button class="btn btn-warning" data-id="${category.id}">Edit</button>
-  <button class="btn btn-danger" data-id="${category.id}">Delete</button>
+  <button class="btn btn-warning" data-id="${id}">Edit</button>
+  <button class="btn btn-danger" data-id="${id}">Delete</button>
   </div>
   </li>`;
 
