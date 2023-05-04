@@ -3,6 +3,8 @@ import About from './pages/About';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import { Button } from "@mui/material"
+import AccessibleForwardIcon from '@mui/icons-material/AccessibleForward';
 
 
 function App() {
@@ -11,7 +13,9 @@ function App() {
   return (
     <React.Fragment>
         <Navbar/>
-        <div>app js</div>
+        <Button variant='contained' color='error'>
+        <AccessibleForwardIcon/>
+          Test Button</Button>
         <Footer/>
     </React.Fragment>
   );

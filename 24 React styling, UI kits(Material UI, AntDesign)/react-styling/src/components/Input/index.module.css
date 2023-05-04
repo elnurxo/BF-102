@@ -1,0 +1,7 @@
+#input{
+    border-radius: 10px;
+    background-color: green;
+}
+#input:hover{
+    width: 300px;
+}
