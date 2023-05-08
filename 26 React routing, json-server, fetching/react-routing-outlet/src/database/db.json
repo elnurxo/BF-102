@@ -1,0 +1,29 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Doritos",
+      "price": 3.5
+    },
+    {
+      "id": 3,
+      "name": "Sprite",
+      "price": "1.5"
+    },
+    {
+      "name": "fanta",
+      "price": "4",
+      "id": "5546511e-831d-45ff-93ea-9dbe7f5ff008"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "drink"
+    },
+    {
+      "id": 2,
+      "name": "snacks"
+    }
+  ]
+}
