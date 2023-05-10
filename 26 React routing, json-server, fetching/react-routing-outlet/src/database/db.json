@@ -1,19 +1,19 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Doritos",
-      "price": 3.5
-    },
-    {
       "id": 3,
       "name": "Sprite",
       "price": "1.5"
     },
     {
-      "name": "fanta",
+      "name": "fanta updated",
       "price": "4",
       "id": "5546511e-831d-45ff-93ea-9dbe7f5ff008"
+    },
+    {
+      "name": "code academy",
+      "price": "2",
+      "id": "e60bbd2c-c62d-4089-a9ae-ecaf29e76e05"
     }
   ],
   "categories": [
