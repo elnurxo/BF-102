@@ -1,0 +1,44 @@
+{
+  "employees": [
+    {
+      "name": "Elnur",
+      "surname": "Khalilov",
+      "position": "React Developer",
+      "salary": "2500",
+      "url": "https://media.vogue.co.uk/photos/5fc0d6f049fe9a6ce8053d8e/master/w_1865,h_3000,c_limit/GettyImages-97205874.jpg",
+      "id": "1cbfa8c0-6ca7-4732-8f19-441dac804976"
+    },
+    {
+      "name": "Polad",
+      "surname": "Mammadli",
+      "position": "Backend Developer",
+      "salary": "900",
+      "url": "https://qafqazinfo.az/newsphotos/2012/03/13/polat-alemdarr-001.jpg",
+      "id": "3b31168f-6c50-4307-a2d6-5b1af8064237"
+    },
+    {
+      "name": "Cavidan",
+      "surname": "Shushayev",
+      "position": "Chaychi",
+      "salary": "600",
+      "url": "https://img.memurlar.net/galeri/22911/16b1e125-634e-ed11-8116-a0369f7d1486.jpg?width=800",
+      "id": "6937d83d-37a8-4120-96f1-7c21e7178604"
+    }
+  ],
+  "users": [
+    {
+      "id":1,
+      "username":"elnurxo_admin",
+      "fullname": "Elnur Khalilov",
+      "password": "Admin123",
+      "isAdmin":true
+    },
+    {
+      "id":2,
+      "username":"cavidan",
+      "fullname": "Cavidan Shushayev",
+      "password": "Cavidan123",
+      "isAdmin":false
+    }
+  ]
+}
