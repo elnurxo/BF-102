@@ -70,7 +70,7 @@ const Artists = () => {
                     }
                   >
                     <Typography>
-                      <Link to={`/artist/${artist.id}`}>{artist.name}</Link>
+                      <Link to={`/artist/${artist._id}`}>{artist.name}</Link>
                     </Typography>
                     <Typography>age: {artist.age}</Typography>
                     <Button
@@ -85,7 +85,7 @@ const Artists = () => {
                           confirmButtonText: "Yes, delete it!",
                         }).then((result) => {
                           if (result.isConfirmed) {
-                            deleteArtistByID(artist.id).then((res) => {
+                            deleteArtistByID(artist._id).then((res) => {
                               Swal.fire(
                                 `${res.name} Deleted!`,
                                 "Your artist has been deleted.",
@@ -93,7 +93,7 @@ const Artists = () => {
                               );
                             });
                             setArtists(
-                              artists.filter((x) => x.id !== artist.id)
+                              artists.filter((x) => x._id !== artist._id)
                             );
                           }
                         });
