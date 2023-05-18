@@ -5,11 +5,14 @@ import { ArtistValidation } from "../validation/ArtistShcema";
 import { postArtist } from "../api/requests";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { useArtistContext } from "../context/ArtistContext";
 
 const AddArtist = () => {
   const navigate = useNavigate();
+  const[artists,setArtists] = useArtistContext();
   const handleSubmit = async(values, actions) => {
     await postArtist(values);
+    setArtists([...artists,values])
     Swal.fire({
       position: 'top-end',
       icon: 'success',

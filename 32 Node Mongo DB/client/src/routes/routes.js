@@ -1,4 +1,5 @@
 import AddArtist from "../pages/AddArtist";
+import ArtistEdit from "../pages/ArtistEdit";
 import Artists from "../pages/Artists";
 import ArtistsDetail from "../pages/ArtistsDetail";
 import Home from "../pages/Home";
@@ -25,6 +26,10 @@ export const ROUTES = [
             {
                 path:'/artist/:id',
                 element: <ArtistsDetail/>
+            },
+            {
+                path:'/artist/edit/:id',
+                element: <ArtistEdit/>
             },
             {
                 path:'*',

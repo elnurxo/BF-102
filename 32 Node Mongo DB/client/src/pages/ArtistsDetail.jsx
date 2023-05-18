@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getArtistSongs, getArtistByID, postSong } from "../api/requests";
+import {
+  getArtistSongs,
+  getArtistByID,
+  postSong,
+  deleteSongByID,
+} from "../api/requests";
 import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 import { Card } from "antd";
 import { Helmet } from "react-helmet";
@@ -11,26 +16,24 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import Modal from '@mui/material/Modal';
+import Modal from "@mui/material/Modal";
 import { useFormik } from "formik";
 
-
-
 const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
   width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
+  bgcolor: "background.paper",
+  border: "2px solid #000",
   boxShadow: 24,
   p: 4,
 };
 
 const ArtistsDetail = () => {
   const [artist, setArtist] = useState({});
-  const[songs,setSongs] = useState([]);
+  const [songs, setSongs] = useState([]);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -40,18 +43,16 @@ const ArtistsDetail = () => {
       setArtist(res);
     });
   }, [id]);
-  useEffect(()=>{
-    getArtistSongs(id).then((res)=>{
+  useEffect(() => {
+    getArtistSongs(id).then((res) => {
       setSongs(res);
-    })
-  },[id]);
-  async function handleSubmit(values,actions){
-    console.log('song data: ',values);
+    });
+  }, [id]);
+  async function handleSubmit(values, actions) {
+    console.log("song data: ", values);
     values.artistID = id;
     await postSong(values);
-    getArtistSongs(id).then((res)=>{
-      setSongs(res);
-    })
+    setSongs([...songs, values]);
     handleClose();
     actions.resetForm();
   }
@@ -60,10 +61,10 @@ const ArtistsDetail = () => {
       title: "",
       duration: "",
       cover: "",
-      releaseYear: ""
+      releaseYear: "",
     },
-    onSubmit: handleSubmit
-  })
+    onSubmit: handleSubmit,
+  });
   return (
     <>
       <Helmet>
@@ -99,6 +100,13 @@ const ArtistsDetail = () => {
               </Button>
             </Card>
             <Button
+              style={{ marginTop: "30px",marginRight:'10px' }}
+              variant="outlined"
+              color="warning"
+            >
+              <Link to={`http://localhost:3000/artist/edit/${artist._id}`} style={{color:'black',textDecoration:'none'}}>Edit {artist.name}</Link>
+            </Button>
+            <Button
               style={{ marginTop: "30px" }}
               variant="outlined"
               color="info"
@@ -117,6 +125,7 @@ const ArtistsDetail = () => {
                     <TableCell align="right">Title</TableCell>
                     <TableCell align="right">Duration</TableCell>
                     <TableCell align="right">Release Year</TableCell>
+                    <TableCell align="right">Delete Song</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -126,11 +135,28 @@ const ArtistsDetail = () => {
                       sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                     >
                       <TableCell component="th" scope="row">
-                        <img width={70} height={70} src={song.cover} alt={song.name}/>
+                        <img
+                          width={70}
+                          height={70}
+                          src={song.cover}
+                          alt={song.name}
+                        />
                       </TableCell>
                       <TableCell align="right">{song.title}</TableCell>
                       <TableCell align="right">{song.duration}</TableCell>
                       <TableCell align="right">{song.releaseYear}</TableCell>
+                      <TableCell align="right">
+                        <Button
+                          onClick={() => {
+                            deleteSongByID(song._id);
+                            setSongs(songs.filter((x) => x._id !== song._id));
+                          }}
+                          variant="contained"
+                          color="error"
+                        >
+                          Delete
+                        </Button>
+                      </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -147,17 +173,64 @@ const ArtistsDetail = () => {
       >
         <Box sx={style}>
           <Typography>Add New Song for {artist.name}</Typography>
-            <form onSubmit={formik.handleSubmit} style={{display:'flex',gap:'10px'}}>
-              <div>
-              <TextField name="title" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.title}  style={{marginBottom:'10px'}} id="outlined-basic" type="text" label="Title" variant="outlined" />
-              <TextField name="duration" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.duration}  id="outlined-basic" type="number" label="Duration" variant="outlined" />
-              </div>
-             <div>
-             <TextField name="cover" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.cover} style={{marginBottom:'10px'}} id="outlined-basic" label="Cover" variant="outlined" />
-              <TextField name="releaseYear" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.releaseYear} id="outlined-basic" label="Release Year" type="number" variant="outlined" />
-              <Button style={{marginTop:'10px'}} variant="contained" color="warning" type="submit">Post Song</Button>
-             </div>
-            </form>
+          <form
+            onSubmit={formik.handleSubmit}
+            style={{ display: "flex", gap: "10px" }}
+          >
+            <div>
+              <TextField
+                name="title"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.title}
+                style={{ marginBottom: "10px" }}
+                id="outlined-basic"
+                type="text"
+                label="Title"
+                variant="outlined"
+              />
+              <TextField
+                name="duration"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.duration}
+                id="outlined-basic"
+                type="number"
+                label="Duration"
+                variant="outlined"
+              />
+            </div>
+            <div>
+              <TextField
+                name="cover"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.cover}
+                style={{ marginBottom: "10px" }}
+                id="outlined-basic"
+                label="Cover"
+                variant="outlined"
+              />
+              <TextField
+                name="releaseYear"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.releaseYear}
+                id="outlined-basic"
+                label="Release Year"
+                type="number"
+                variant="outlined"
+              />
+              <Button
+                style={{ marginTop: "10px" }}
+                variant="contained"
+                color="warning"
+                type="submit"
+              >
+                Post Song
+              </Button>
+            </div>
+          </form>
         </Box>
       </Modal>
     </>

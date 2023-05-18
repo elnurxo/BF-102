@@ -38,6 +38,10 @@ export const deleteArtistByID = async (ID) => {
 export const postArtist = (payload) => {
   axios.post(`${BASE_URL}/artists`, payload);
 };
+//edit artist
+export const editArtist = (id,payload)=>{
+  axios.put(`${BASE_URL}/artists/${id}`,payload);
+}
 
 
 //get All songs
@@ -56,6 +60,14 @@ export const getAllSongs = async() => {
     globalData = res.data;
   })
   return globalData
+}
+export const deleteSongByID = async(id)=>{
+  let deletedSong;
+  await axios.delete(`${BASE_URL}/songs/${id}`)
+  .then(res=>{
+    deletedSong = res.data.data;
+  })
+  return deletedSong;
 }
 export const postSong =  (payload)=>{
   axios.post(`${BASE_URL}/songs`,payload);

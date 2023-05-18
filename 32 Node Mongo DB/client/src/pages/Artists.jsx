@@ -7,14 +7,17 @@ import { Link } from "react-router-dom";
 import { Button, TextField } from "@mui/material";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
+import { useArtistContext } from "../context/ArtistContext";
 
 const Artists = () => {
-  const [artists, setArtists] = useState([]);
+  const[artists,setArtists] = useArtistContext();
+  const[loading,setLoading] = useState(true);
   useEffect(() => {
     getAllArtists().then((res) => {
       setArtists(res);
+      setLoading(false);
     });
-  }, []);
+  },[]);
   function handleSearch(e) {
     getAllArtists(e.target.value).then((res) => {
       setArtists(res);
@@ -25,7 +28,7 @@ const Artists = () => {
       <Helmet>
         <title>Artists</title>
       </Helmet>
-      <Box
+      { loading ?<div>loading...</div> :   <Box
         
         sx={{ flexGrow: 1, width: "90%", margin: "25px auto" }}
       >
@@ -108,7 +111,7 @@ const Artists = () => {
               );
             })}
         </Grid>
-      </Box>
+      </Box>}
     </>
   );
 };

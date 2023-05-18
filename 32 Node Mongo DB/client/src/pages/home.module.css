@@ -1,0 +1,19 @@
+.image{
+    border-radius: 50%;
+    overflow: hidden;
+}
+.row:hover .image{
+    animation-name: songPlayer;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes songPlayer {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
