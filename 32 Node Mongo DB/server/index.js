@@ -26,8 +26,6 @@ app.use('/api/artists/', artist_router)
 app.use('/api/songs/', song_router)
 
 
-
-
 PORT  = process.env.PORT;
 app.listen(PORT, () => {
     console.log(`NODE APP listening on port ${PORT}`);
